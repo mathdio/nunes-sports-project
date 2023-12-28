@@ -2,6 +2,7 @@ package com.nunessports.productssystem.services;
 
 import com.nunessports.productssystem.models.entities.Product;
 import com.nunessports.productssystem.models.repositories.ProductRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,9 @@ public class ProductService {
 
   public Product createProduct(Product product) {
     return this.productRepository.save(product);
+  }
+
+  public List<Product> getAllProducts() {
+    return this.productRepository.findAll();
   }
 }
