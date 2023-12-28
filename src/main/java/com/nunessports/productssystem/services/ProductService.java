@@ -55,4 +55,22 @@ public class ProductService {
       this.productRepository.deleteById(id);
     }
   }
+
+  /**
+   * Update product product.
+   *
+   * @param productToUpdate the product to update
+   * @param id              the id
+   * @return the product
+   */
+  public Product updateProduct(Product productToUpdate, Long id) {
+    Optional<Product> optionalProduct = this.getProductById(id);
+
+    Product product = optionalProduct.get();
+    product.setName(productToUpdate.getName());
+    product.setDescription(productToUpdate.getDescription());
+    product.setPrice(productToUpdate.getPrice());
+
+    return this.productRepository.save(product);
+  }
 }
