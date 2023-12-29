@@ -7,31 +7,25 @@
   justify-content: flex-start;
 }
 
-.product-info {
-  align-items: center;
-  background-color: rgb(16, 155, 255);
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  height: 15%;
-  justify-content: center;
+.title {
+  color: white;
   margin-top: 5%;
-  width: 50%;
 }
 
 .product-table {
+  color: white;
   font-size: 20px;
   margin-top: 2%;
   text-align: center;
-  width: 90%;
+  width: 60%
 }
 
 .product-table th {
-  border: 2px solid black;
+  border: 2px solid white;
 }
 
 .product-table td {
-  border: 1px solid black;
+  border: 1px solid white;
 }
 
 .form-container {

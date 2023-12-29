@@ -55,7 +55,7 @@ function ProductEditForm() {
 
   return (
     <div className={ styles['main-container'] }>
-      <h2>PRODUCT INFO</h2>
+      <h2 className={ styles.title }>PRODUCT INFO</h2>
       <table className={ styles['product-table'] }>
         <thead>
           <tr>
