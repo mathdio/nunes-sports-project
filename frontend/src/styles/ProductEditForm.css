@@ -1,28 +1,28 @@
 .main-container {
-  background-color: rgb(57, 57, 57);;
-  height: 100vh;
+  align-items: center;
+  background-color: rgb(57, 57, 57);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
   justify-content: flex-start;
 }
 
 .product-info {
+  align-items: center;
   background-color: rgb(16, 155, 255);
   border-radius: 5px;
-  margin-top: 5%;
-  width: 50%;
-  height: 15%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 15%;
   justify-content: center;
+  margin-top: 5%;
+  width: 50%;
 }
 
 .product-table {
+  margin-top: 2%;
   text-align: center;
   width: 90%;
-  margin-top: 2%;
 }
 
 .product-table th {
@@ -34,38 +34,38 @@
 }
 
 .form-container {
+  align-items: center;
   background-color: rgb(255, 105, 105);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  height: 45%;
+  justify-content: center;
   margin-top: 5%;
   width: 50%;
-  height: 45%;
-  align-items: center;
-  justify-content: center;
 }
 
 .input {
   border: 1px black solid;
   border-radius: 5px;
-  width: 60%;
-  height: 40px;
   font-size: 18px;
-  padding: 5px;
+  height: 40px;
   margin-top: 2%;
+  padding: 5px;
+  width: 60%;
 }
 
 .button-update {
-  margin-top: 2%;
-  width: 30%;
-  height: 30px;
-  border-radius: 5px;
   background-color: rgb(16, 155, 255);
+  border-radius: 5px;
   font-size: 18px;
   font-weight: 700;
+  height: 30px;
+  margin-top: 2%;
+  width: 30%;
 }
 
 .button-update:hover {
-  cursor: pointer;
   background-color: rgb(0, 130, 223);
+  cursor: pointer;
 }
