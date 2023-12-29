@@ -9,6 +9,37 @@
   color: white;
 }
 
+.create-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 15%;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-link {
+  border-radius: 10px;
+  margin-top: 5%;
+  height: 40px;
+  width: 45%;
+} 
+
+.create-button {
+  background-color: rgb(255, 105, 105);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.create-button:hover {
+  cursor: pointer;
+  background-color: rgb(151, 54, 54);
+}
+
 .table-container {
   width: 80%;
   margin-top: 2%;

@@ -2,6 +2,7 @@ import ProductRow from "../components/ProductRow";
 import fetchProducts from "../utils/fetchProducts";
 import { useEffect, useState } from "react";
 import "../styles/ProductsTable.css";
+import { Link } from "react-router-dom";
 
 function ProductsTable() {
 
@@ -15,7 +16,17 @@ function ProductsTable() {
 
   return (
       <div className="container">
-        <h1>Products System</h1>
+        <div className="create-container">
+          <h1>Products System</h1>
+          <Link className="create-link" to="/register">
+            <button
+              type="button"
+              className="create-button"
+            >
+              Create new product
+            </button>
+          </Link>
+        </div>
         <table className="table-container">
           <thead className="table-head">
             <tr>
