@@ -1,26 +1,25 @@
-import { useEffect, useState } from 'react';
+import styles from '../styles/ProductEditForm.module.css';
 import fetchProductById from '../utils/fetchProductById';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import styles from '../styles/ProductEditForm.module.css'
-
 
 function ProductEditForm() {
   const [product, setProduct] = useState({});
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
 
   const navigateTo = useNavigate();
 
   const { id } = useParams();
 
   useEffect(() => {
-    fetchProductById(id, setProduct)
+    fetchProductById(id, setProduct);
   }, []);
 
   const updateProductInfo = async () => {
-    if (price === "") {
-      alert("Price cannot be empty");
+    if (price === '') {
+      alert('Price cannot be empty');
       return 0;
     }
 
@@ -28,7 +27,7 @@ function ProductEditForm() {
       name,
       description,
       price,
-    }
+    };
 
     const response = await fetch(
       `http://localhost:8080/products/${id}`,
@@ -47,68 +46,70 @@ function ProductEditForm() {
     const NOT_FOUND_STATUS = 404;
     console.log(response.status);
     if (response.status === NOT_FOUND_STATUS) {
-      alert("Product not found!");
+      alert('Product not found!');
     } else {
-      alert("Product edited successfully!")
-      navigateTo("/");
+      alert('Product edited successfully!');
+      navigateTo('/');
     }
-  }
+  };
 
   return (
-    <div className={styles["main-container"]}>
-      <div className={styles["product-info"]}>
-        <h2>PRODUCT INFO</h2>
-        <table className={styles["product-table"]}>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{product.name}</td>
-              <td>{product.description}</td>
-              <td>R$ {product.price}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div className={ styles['main-container'] }>
+      <h2>PRODUCT INFO</h2>
+      <table className={ styles['product-table'] }>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{product.name}</td>
+            <td>{product.description}</td>
+            <td>
+              R$
+              {' '}
+              {product.price}
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-      <form className={styles["form-container"]}>
+      <form className={ styles['form-container'] }>
         <h2>Edit product info</h2>
         <input
-          className={styles.input}
+          className={ styles.input }
           type="text"
           value={ name }
           onChange={ ({ target }) => setName(target.value) }
-          placeholder='Name'
+          placeholder="Name"
         />
         <input
-          className={styles.input}
+          className={ styles.input }
           type="text"
           value={ description }
           onChange={ ({ target }) => setDescription(target.value) }
-          placeholder='Description'
+          placeholder="Description"
         />
         <input
-          className={styles.input}
+          className={ styles.input }
           type="number"
           value={ price }
           onChange={ ({ target }) => setPrice(target.value) }
-          placeholder='Price'
+          placeholder="Price"
         />
         <button
-          className={styles["button-update"]}
-          type='button'
-          onClick={ updateProductInfo  }
+          className={ styles['button-update'] }
+          type="button"
+          onClick={ updateProductInfo }
         >
           UPDATE
         </button>
       </form>
     </div>
-  )
+  );
 }
 
 export default ProductEditForm;

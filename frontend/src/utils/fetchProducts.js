@@ -1,6 +1,6 @@
 const fetchProducts = async (setProducts) => {
   const response = await fetch(
-    "http://localhost:8080/products",
+    'http://localhost:8080/products',
     {
       method: 'GET',
       headers: {
@@ -13,6 +13,6 @@ const fetchProducts = async (setProducts) => {
   );
   const data = await response.json();
   setProducts(data);
-}
+};
 
 export default fetchProducts;

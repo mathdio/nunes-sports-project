@@ -12,8 +12,8 @@ const fetchProductById = async (id, setProduct) => {
     },
   );
   const data = await response.json();
-  data.price = data.price.toFixed(2).toString().replace(".", ",");
+  data.price = data.price.toFixed(2).toString().replace('.', ',');
   setProduct(data);
-}
+};
 
 export default fetchProductById;

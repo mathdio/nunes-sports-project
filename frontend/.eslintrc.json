@@ -4,8 +4,7 @@
         "es2021": true
     },
     "extends": [
-        "google",
-        "plugin:react/recommended"
+        "@trybe/eslint-config-frontend"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -15,5 +14,6 @@
         "react"
     ],
     "rules": {
+        "import-order-autofix": "order"
     }
 }
