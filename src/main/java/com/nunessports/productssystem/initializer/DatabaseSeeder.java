@@ -23,13 +23,13 @@ public class DatabaseSeeder implements CommandLineRunner {
   }
 
   private void seedProducts() {
-    Product product = new Product(1L, "Pente", "Pequeno", 5d);
+    Product product = new Product(1L, "Pente", "Pequeno", 5.99d);
     this.productRepository.save(product);
 
-    product = new Product(2L, "Banco", "Grande", 10d);
+    product = new Product(2L, "Banco", "Grande", 100d);
     this.productRepository.save(product);
 
-    product = new Product(3L, "Ventilador", "Preto", 50d);
+    product = new Product(3L, "Ventilador", "Preto", 79.90d);
     this.productRepository.save(product);
   }
 }

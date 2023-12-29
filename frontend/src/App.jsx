@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route exact path="/" Component={ ProductsTable } />
-      <Route path='/edit/:id' Component={ ProductEditForm } />
+      <Route path="/edit/:id" Component={ ProductEditForm } />
     </Routes>
   )
 }

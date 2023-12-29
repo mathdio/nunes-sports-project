@@ -29,10 +29,11 @@ function ProductRow({id, name, description, price, updateDatabase, setUpdateData
       <td className="data-cell">{id}</td>
       <td className="data-cell">{name}</td>
       <td className="data-cell">{description}</td>
-      <td className="data-cell">{price}</td>
+      <td className="data-cell">R$ {price.toFixed(2).toString().replace(".", ",")}</td>
       <td className="data-cell">
         <button 
           className="button"
+          type='button'
           onClick={ () => editProduct(id) }  
         >
           Edit
@@ -41,6 +42,7 @@ function ProductRow({id, name, description, price, updateDatabase, setUpdateData
       <td className="data-cell">
         <button
           className="button"
+          type='button'
           onClick={ ()=> deleteProduct(id) }
         >
           Delete

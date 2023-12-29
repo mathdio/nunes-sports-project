@@ -1,6 +1,6 @@
-const fetchProducts = async (setProducts) => {
+const fetchProductById = async (id, setProduct) => {
   const response = await fetch(
-    "http://localhost:8080/products",
+    `http://localhost:8080/products/${id}`,
     {
       method: 'GET',
       headers: {
@@ -12,7 +12,8 @@ const fetchProducts = async (setProducts) => {
     },
   );
   const data = await response.json();
-  setProducts(data);
+  data.price = data.price.toFixed(2).toString().replace(".", ",");
+  setProduct(data);
 }
 
-export default fetchProducts;
+export default fetchProductById;
