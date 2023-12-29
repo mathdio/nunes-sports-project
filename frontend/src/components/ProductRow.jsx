@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import styles from '../styles/ProductsTable.module.css';
 
 function ProductRow({id, name, description, price, updateDatabase, setUpdateDatabase}) {
   const navigateTo = useNavigate();
@@ -26,22 +27,22 @@ function ProductRow({id, name, description, price, updateDatabase, setUpdateData
 
   return (
     <tr>
-      <td className="data-cell">{id}</td>
-      <td className="data-cell">{name}</td>
-      <td className="data-cell">{description}</td>
-      <td className="data-cell">R$ {price.toFixed(2).toString().replace(".", ",")}</td>
-      <td className="data-cell">
+      <td className={styles["data-cell"]}>{id}</td>
+      <td className={styles["data-cell"]}>{name}</td>
+      <td className={styles["data-cell"]}>{description}</td>
+      <td className={styles["data-cell"]}>R$ {price.toFixed(2).toString().replace(".", ",")}</td>
+      <td className={styles["data-cell"]}>
         <button 
-          className="button"
+          className={styles.button}
           type='button'
           onClick={ () => editProduct(id) }  
         >
           Edit
         </button>
       </td>
-      <td className="data-cell">
+      <td className={styles["data-cell"]}>
         <button
-          className="button"
+          className={styles.button}
           type='button'
           onClick={ ()=> deleteProduct(id) }
         >

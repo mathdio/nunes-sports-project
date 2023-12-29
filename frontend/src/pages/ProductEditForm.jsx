@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import fetchProductById from '../utils/fetchProductById';
 import { useNavigate, useParams } from 'react-router-dom';
-import '../styles/ProductEditForm.css'
+import styles from '../styles/ProductEditForm.module.css'
 
 
 function ProductEditForm() {
@@ -55,10 +55,10 @@ function ProductEditForm() {
   }
 
   return (
-    <div className='main-container'>
-      <div className='product-info'>
+    <div className={styles["main-container"]}>
+      <div className={styles["product-info"]}>
         <h2>PRODUCT INFO</h2>
-        <table className='product-table'>
+        <table className={styles["product-table"]}>
           <thead>
             <tr>
               <th>Name</th>
@@ -76,31 +76,31 @@ function ProductEditForm() {
         </table>
       </div>
 
-      <form className='form-container'>
+      <form className={styles["form-container"]}>
         <h2>Edit product info</h2>
         <input
-          className='input'
+          className={styles.input}
           type="text"
           value={ name }
           onChange={ ({ target }) => setName(target.value) }
           placeholder='Name'
         />
         <input
-          className='input'
+          className={styles.input}
           type="text"
           value={ description }
           onChange={ ({ target }) => setDescription(target.value) }
           placeholder='Description'
         />
         <input
-          className='input'
+          className={styles.input}
           type="number"
           value={ price }
           onChange={ ({ target }) => setPrice(target.value) }
           placeholder='Price'
         />
         <button
-          className='button-update'
+          className={styles["button-update"]}
           type='button'
           onClick={ updateProductInfo  }
         >

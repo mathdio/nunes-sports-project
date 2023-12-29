@@ -1,8 +1,8 @@
 import ProductRow from "../components/ProductRow";
 import fetchProducts from "../utils/fetchProducts";
 import { useEffect, useState } from "react";
-import "../styles/ProductsTable.css";
 import { Link } from "react-router-dom";
+import styles from "../styles/ProductsTable.module.css";
 
 function ProductsTable() {
 
@@ -15,30 +15,30 @@ function ProductsTable() {
   }, [updateDatabase]);
 
   return (
-      <div className="container">
-        <div className="create-container">
+      <main className={styles["main-container"]}>
+        <div className={styles["create-container"]}>
           <h1>Products System</h1>
-          <Link className="create-link" to="/register">
+          <Link className={styles["create-link"]} to="/register">
             <button
               type="button"
-              className="create-button"
+              className={styles["create-button"]}
             >
               Create new product
             </button>
           </Link>
         </div>
-        <table className="table-container">
-          <thead className="table-head">
+        <table className={styles["table-container"]}>
+          <thead className={styles["table-head"]}>
             <tr>
-              <th className="head-cell">ID</th>
-              <th className="head-cell">Name</th>
-              <th className="head-cell">Description</th>
-              <th className="head-cell">Price</th>
-              <th className="head-cell">Edit</th>
-              <th className="head-cell">Delete</th>
+              <th className={styles["head-cell"]}>ID</th>
+              <th className={styles["head-cell"]}>Name</th>
+              <th className={styles["head-cell"]}>Description</th>
+              <th className={styles["head-cell"]}>Price</th>
+              <th className={styles["head-cell"]}>Edit</th>
+              <th className={styles["head-cell"]}>Delete</th>
             </tr>
           </thead>
-          <tbody className="tablebody">
+          <tbody className={styles["tablebody"]}>
             {products.map((product) => (
               <ProductRow
                 key={product.id}
@@ -51,7 +51,7 @@ function ProductsTable() {
             />))}
           </tbody>
         </table>
-      </div>
+      </main>
   )
 }
 
