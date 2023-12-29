@@ -8,19 +8,19 @@ function App() {
 
   return (
       <div className="container">
-        <h1>Produtos</h1>
-        <table>
-          <thead>
+        <h1>Products System</h1>
+        <table className="table-container">
+          <thead className="table-head">
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th className="head-cell">ID</th>
+              <th className="head-cell">Name</th>
+              <th className="head-cell">Description</th>
+              <th className="head-cell">Price</th>
+              <th className="head-cell">Edit</th>
+              <th className="head-cell">Delete</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="tablebody">
             {products?.map(product => 
               <ProductRow
                 key={product.id}
