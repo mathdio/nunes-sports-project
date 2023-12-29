@@ -1,10 +1,16 @@
 import './App.css'
-import { Product } from './interfaces/Product';
 import { ProductRow } from './components/ProductRow';
-import { useProductsData } from './hooks/useProductsData';
+import { fetchProducts } from './utils/fetchProducts';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const products: Product[] = useProductsData().data;
+  const [products, setProducts] = useState([]);
+  const [updateDatabase, setUpdateDatabase] = useState(false);
+
+  useEffect(() => {
+    document.title = 'Products System';
+    fetchProducts(setProducts);
+  }, [updateDatabase]);
 
   return (
       <div className="container">
@@ -21,14 +27,16 @@ function App() {
             </tr>
           </thead>
           <tbody className="tablebody">
-            {products?.map(product => 
+            {products.map((product) => (
               <ProductRow
                 key={product.id}
                 id={product.id}
                 name={product.name}
                 description={product.description}
                 price={product.price}
-            />)}
+                updateDatabase={updateDatabase}
+                setUpdateDatabase={setUpdateDatabase}
+            />))}
           </tbody>
         </table>
       </div>
