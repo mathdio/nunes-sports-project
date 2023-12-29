@@ -1,0 +1,49 @@
+.container {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2%;
+}
+
+.table-container {
+  width: 80%;
+  margin-top: 2%;
+}
+
+.table-head {
+  font-size: 30px;
+
+}
+
+.tablebody {
+  font-size: 20px;
+}
+
+.head-cell {
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 15px;
+}
+
+.data-cell {
+  border: 1px black solid;
+  text-align: center;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.button {
+  width: 80%;
+  height: 70%;
+  background-color: aqua;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 5px;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: rgb(68, 126, 227);
+}

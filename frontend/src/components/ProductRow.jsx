@@ -1,4 +1,8 @@
-export function ProductRow({id, name, description, price, updateDatabase, setUpdateDatabase}) {
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+
+function ProductRow({id, name, description, price, updateDatabase, setUpdateDatabase}) {
+  const navigateTo = useNavigate();
 
   const deleteProduct = async (productId) => {
     await fetch(
@@ -16,6 +20,10 @@ export function ProductRow({id, name, description, price, updateDatabase, setUpd
     setUpdateDatabase(!updateDatabase);
   }
 
+  const editProduct = (id) => {
+    navigateTo(`/edit/${id}`)
+  }
+
   return (
     <tr>
       <td className="data-cell">{id}</td>
@@ -23,11 +31,17 @@ export function ProductRow({id, name, description, price, updateDatabase, setUpd
       <td className="data-cell">{description}</td>
       <td className="data-cell">{price}</td>
       <td className="data-cell">
-        <button className="button">Edit</button>
+        <button 
+          className="button"
+          onClick={ () => editProduct(id) }  
+        >
+          Edit
+        </button>
       </td>
       <td className="data-cell">
-        <button className="button"
-          onClick={()=> deleteProduct(id)}
+        <button
+          className="button"
+          onClick={ ()=> deleteProduct(id) }
         >
           Delete
         </button>
@@ -35,3 +49,14 @@ export function ProductRow({id, name, description, price, updateDatabase, setUpd
     </tr>
   )
 }
+
+ProductRow.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.number,
+  updateDatabase: PropTypes.bool,
+  setUpdateDatabase: PropTypes.func,
+}
+
+export default ProductRow;

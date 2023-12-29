@@ -1,4 +1,4 @@
-export const fetchProducts = async (setProducts) => {
+const fetchProducts = async (setProducts) => {
   const response = await fetch(
     "http://localhost:8080/products",
     {
@@ -15,3 +15,5 @@ export const fetchProducts = async (setProducts) => {
   console.log(data);
   setProducts(data);
 }
+
+export default fetchProducts;
