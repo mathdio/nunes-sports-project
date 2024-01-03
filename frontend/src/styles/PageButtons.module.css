@@ -1,5 +1,13 @@
-.numbered-button {
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.numbered-button, .button {
   background-color: rgb(255, 105, 105);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
   height: 50px;
   width: 50px;
 }
@@ -8,8 +16,37 @@
   background-color: rgb(151, 54, 54);
 }
 
-.numbered-button:enabled:hover {
+.numbered-button:enabled:hover, .button:hover {
   background-color: rgb(151, 54, 54);
   cursor: pointer;
 }
 
+.button:disabled {
+  background-color: rgb(151, 54, 54);
+  cursor: default;
+}
+
+.button-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.left-icon {
+  border-radius: 5px 0 0 5px;
+}
+
+.right-icon {
+  border-radius: 0 5px 5px 0;
+}
+
+.left-button {
+  border-radius: 6px 0 0 6px;
+  height: 50px;
+  width: 50px;
+}
+
+.right-button {
+  border-radius: 0 6px 6px 0;
+  height: 50px;
+  width: 50px;
+}
