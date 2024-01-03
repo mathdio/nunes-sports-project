@@ -9,32 +9,32 @@ function ProductsTable() {
   const [updateDatabase, setUpdateDatabase] = useState(false);
 
   useEffect(() => {
-    document.title = 'Products System';
+    document.title = 'Sistema de Produtos';
     fetchProducts(setProducts);
   }, [updateDatabase]);
 
   return (
     <main className={ styles['main-container'] }>
       <div className={ styles['create-container'] }>
-        <h1>Products System</h1>
+        <h1>Sistema de produtos</h1>
         <Link className={ styles['create-link'] } to="/register">
           <button
             type="button"
             className={ styles['create-button'] }
           >
-            Create new product
+            Registrar novo produto
           </button>
         </Link>
       </div>
       <table className={ styles['table-container'] }>
         <thead className={ styles['table-head'] }>
           <tr>
-            <th className={ styles['head-cell'] }>ID</th>
-            <th className={ styles['head-cell'] }>Name</th>
-            <th className={ styles['head-cell'] }>Description</th>
-            <th className={ styles['head-cell'] }>Price</th>
-            <th className={ styles['head-cell'] }>Edit</th>
-            <th className={ styles['head-cell'] }>Delete</th>
+            <th className={ styles['head-cell'] }>Código</th>
+            <th className={ styles['head-cell'] }>Nome</th>
+            <th className={ styles['head-cell'] }>Descrição</th>
+            <th className={ styles['head-cell'] }>Preço</th>
+            <th className={ styles['head-cell'] }>Editar</th>
+            <th className={ styles['head-cell'] }>Excluir</th>
           </tr>
         </thead>
         <tbody className={ styles.tablebody }>

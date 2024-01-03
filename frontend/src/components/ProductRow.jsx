@@ -41,7 +41,7 @@ function ProductRow({ id, name, description, price, updateDatabase, setUpdateDat
           type="button"
           onClick={ () => editProduct(id) }
         >
-          Edit
+          Editar
         </button>
       </td>
       <td className={ styles['data-cell'] }>
@@ -50,7 +50,7 @@ function ProductRow({ id, name, description, price, updateDatabase, setUpdateDat
           type="button"
           onClick={ () => deleteProduct(id) }
         >
-          Delete
+          Excluir
         </button>
       </td>
     </tr>

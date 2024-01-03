@@ -55,13 +55,13 @@ function ProductEditForm() {
 
   return (
     <div className={ styles['main-container'] }>
-      <h2 className={ styles.title }>PRODUCT INFO</h2>
+      <h2 className={ styles.title }>INFORMAÇÕES DO PRODUTO</h2>
       <table className={ styles['product-table'] }>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
           </tr>
         </thead>
         <tbody>
@@ -78,34 +78,34 @@ function ProductEditForm() {
       </table>
 
       <form className={ styles['form-container'] }>
-        <h2>Edit product info</h2>
+        <h2>Editar informações do produto</h2>
         <input
           className={ styles.input }
           type="text"
           value={ name }
           onChange={ ({ target }) => setName(target.value) }
-          placeholder="Name"
+          placeholder="Nome"
         />
         <input
           className={ styles.input }
           type="text"
           value={ description }
           onChange={ ({ target }) => setDescription(target.value) }
-          placeholder="Description"
+          placeholder="Descrição"
         />
         <input
           className={ styles.input }
           type="number"
           value={ price }
           onChange={ ({ target }) => setPrice(target.value) }
-          placeholder="Price"
+          placeholder="Preço"
         />
         <button
           className={ styles['button-update'] }
           type="button"
           onClick={ updateProductInfo }
         >
-          UPDATE
+          ATUALIZAR
         </button>
       </form>
     </div>
