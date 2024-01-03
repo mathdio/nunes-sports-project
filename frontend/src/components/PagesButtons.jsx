@@ -8,7 +8,7 @@ function PagesButtons({ count, pageNumber, setSearchParams, setPageNumber }) {
   const [arrayPages, setArrayPages] = useState([]);
 
   useEffect(() => {
-    const PRODUCTS_PER_PAGE = 10;
+    const PRODUCTS_PER_PAGE = 5;
     const totalPages = Math.ceil(count / PRODUCTS_PER_PAGE);
     const pagesArray = Array(totalPages).fill(1).map((x, y) => x + y);
     setArrayPages(pagesArray);

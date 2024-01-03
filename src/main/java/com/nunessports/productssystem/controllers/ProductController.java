@@ -44,7 +44,7 @@ public class ProductController {
   public List<ProductDto> getAllProducts(
       @RequestParam(required = false, defaultValue = "0") int pageNumber
   ) {
-    return this.productService.getAllProducts(pageNumber, 10);
+    return this.productService.getAllProducts(pageNumber, 5);
   }
 
   @GetMapping("/{productId}")
