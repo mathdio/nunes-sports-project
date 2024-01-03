@@ -2,7 +2,7 @@ import styles from '../styles/PageButtons.module.css';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-function PagesButtons({ count, pageNumber, navigateTo, setPageNumber }) {
+function PagesButtons({ count, pageNumber, setSearchParams, setPageNumber }) {
   const [arrayPages, setArrayPages] = useState([]);
 
   useEffect(() => {
@@ -12,6 +12,11 @@ function PagesButtons({ count, pageNumber, navigateTo, setPageNumber }) {
     console.log(pagesArray);
     setArrayPages(pagesArray);
   }, []);
+
+  const handleClick = (page) => {
+    setPageNumber(page);
+    setSearchParams({ pageNumber: page });
+  };
 
   return (
     <div>
@@ -23,7 +28,7 @@ function PagesButtons({ count, pageNumber, navigateTo, setPageNumber }) {
           key={ page }
           disabled={ (page === pageNumber) }
           className={ styles['numbered-button'] }
-          onClick={ () => setPageNumber(page) }
+          onClick={ () => handleClick(page) }
         >
           {page}
         </button>

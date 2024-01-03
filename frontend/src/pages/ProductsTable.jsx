@@ -4,7 +4,7 @@ import styles from '../styles/ProductsTable.module.css';
 import fetchCount from '../utils/fetchCount';
 import fetchProducts from '../utils/fetchProducts';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 function ProductsTable() {
   const [products, setProducts] = useState([]);
@@ -13,11 +13,10 @@ function ProductsTable() {
   const [pageNumber, setPageNumber] = useState();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const navigateTo = useNavigate();
-
   useEffect(() => {
     document.title = 'Sistema de Produtos';
     setPageNumber(searchParams.get('pageNumber') || 1);
+    setSearchParams({ pageNumber: 1 });
   }, [updateDatabase]);
 
   useEffect(() => {
@@ -66,8 +65,8 @@ function ProductsTable() {
         <PagesButtons
           count={ count }
           pageNumber={ Number(pageNumber) }
-          navigateTo={ navigateTo }
           setPageNumber={ setPageNumber }
+          setSearchParams={ setSearchParams }
         />)}
     </main>
   );
