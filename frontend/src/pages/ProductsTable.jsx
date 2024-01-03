@@ -1,21 +1,29 @@
+import PagesButtons from '../components/PagesButtons';
 import ProductRow from '../components/ProductRow';
 import styles from '../styles/ProductsTable.module.css';
+import fetchCount from '../utils/fetchCount';
 import fetchProducts from '../utils/fetchProducts';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 function ProductsTable() {
   const [products, setProducts] = useState([]);
   const [updateDatabase, setUpdateDatabase] = useState(false);
+  const [count, setCount] = useState(0);
+  const [pageNumber, setPageNumber] = useState();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const navigateTo = useNavigate();
 
   useEffect(() => {
     document.title = 'Sistema de Produtos';
-    fetchProducts(setProducts);
+    setPageNumber(searchParams.get('pageNumber') || 1);
   }, [updateDatabase]);
 
   useEffect(() => {
-    console.log(products);
-  }, [products]);
+    fetchProducts(setProducts, pageNumber);
+    fetchCount(setCount);
+  }, [pageNumber]);
 
   return (
     <main className={ styles['main-container'] }>
@@ -54,6 +62,13 @@ function ProductsTable() {
             />))}
         </tbody>
       </table>
+      {(count > 0) && (
+        <PagesButtons
+          count={ count }
+          pageNumber={ Number(pageNumber) }
+          navigateTo={ navigateTo }
+          setPageNumber={ setPageNumber }
+        />)}
     </main>
   );
 }

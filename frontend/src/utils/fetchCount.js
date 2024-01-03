@@ -1,6 +1,6 @@
-const fetchProducts = async (setProducts, pageNumber = 1) => {
+const fetchCount = async (setCount) => {
   const response = await fetch(
-    `http://localhost:8080/products?pageNumber=${Number(pageNumber) - 1}`,
+    'http://localhost:8080/products/count',
     {
       method: 'GET',
       headers: {
@@ -12,7 +12,7 @@ const fetchProducts = async (setProducts, pageNumber = 1) => {
     },
   );
   const data = await response.json();
-  setProducts(data);
+  setCount(data);
 };
 
-export default fetchProducts;
+export default fetchCount;

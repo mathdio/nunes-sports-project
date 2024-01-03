@@ -1,0 +1,15 @@
+.numbered-button {
+  background-color: rgb(255, 105, 105);
+  height: 50px;
+  width: 50px;
+}
+
+.numbered-button:disabled {
+  background-color: rgb(151, 54, 54);
+}
+
+.numbered-button:enabled:hover {
+  background-color: rgb(151, 54, 54);
+  cursor: pointer;
+}
+

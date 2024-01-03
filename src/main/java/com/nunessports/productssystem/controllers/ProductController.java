@@ -42,10 +42,9 @@ public class ProductController {
 
   @GetMapping
   public List<ProductDto> getAllProducts(
-      @RequestParam(required = false, defaultValue = "0") int pageNumber,
-      @RequestParam(required = false, defaultValue = "10") int pageSize
+      @RequestParam(required = false, defaultValue = "0") int pageNumber
   ) {
-    return this.productService.getAllProducts(pageNumber, pageSize);
+    return this.productService.getAllProducts(pageNumber, 10);
   }
 
   @GetMapping("/{productId}")
