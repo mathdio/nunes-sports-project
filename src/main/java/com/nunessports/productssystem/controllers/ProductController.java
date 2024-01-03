@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -40,8 +41,11 @@ public class ProductController {
   }
 
   @GetMapping
-  public List<Product> getAllProducts() {
-    return this.productService.getAllProducts();
+  public List<ProductDto> getAllProducts(
+      @RequestParam(required = false, defaultValue = "0") int pageNumber,
+      @RequestParam(required = false, defaultValue = "10") int pageSize
+  ) {
+    return this.productService.getAllProducts(pageNumber, pageSize);
   }
 
   @GetMapping("/{productId}")
@@ -63,4 +67,8 @@ public class ProductController {
     return ResponseEntity.ok(newProduct);
   }
 
+  @GetMapping("/count")
+  public Long countById() {
+    return this.productService.count();
+  }
 }

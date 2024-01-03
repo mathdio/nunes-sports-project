@@ -1,11 +1,14 @@
 package com.nunessports.productssystem.services;
 
+import com.nunessports.productssystem.controllers.dto.ProductDto;
 import com.nunessports.productssystem.exceptions.NotFoundException;
 import com.nunessports.productssystem.models.entities.Product;
 import com.nunessports.productssystem.models.repositories.ProductRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,8 +28,19 @@ public class ProductService {
     return this.productRepository.save(product);
   }
 
-  public List<Product> getAllProducts() {
-    return this.productRepository.findAll();
+  /**
+   * Gets all products.
+   *
+   * @param pageNumber the page number
+   * @param pageSize   the page size
+   * @return the all products
+   */
+  public List<ProductDto> getAllProducts(int pageNumber, int pageSize) {
+    Pageable pageable = PageRequest.of(pageNumber, pageSize);
+
+    return this.productRepository.findAll(pageable).stream()
+        .map(product -> new ProductDto(product.getId(), product.getName(), product.getDescription(), product.getPrice()))
+        .toList();
   }
 
   /**
@@ -72,5 +86,9 @@ public class ProductService {
     product.setPrice(productToUpdate.getPrice());
 
     return this.productRepository.save(product);
+  }
+
+  public Long count() {
+    return this.productRepository.count();
   }
 }

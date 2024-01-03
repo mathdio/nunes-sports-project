@@ -13,6 +13,10 @@ function ProductsTable() {
     fetchProducts(setProducts);
   }, [updateDatabase]);
 
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
+
   return (
     <main className={ styles['main-container'] }>
       <div className={ styles['create-container'] }>
