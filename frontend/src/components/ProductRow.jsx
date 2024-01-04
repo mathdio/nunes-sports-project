@@ -18,7 +18,7 @@ function ProductRow({ id, name, description, price, setUpdateDatabase }) {
         },
       },
     );
-    alert('Produto deletado com sucesso!');
+    alert(`Produto de ID ${id} deletado com sucesso!`);
     setUpdateDatabase(true);
   };
 

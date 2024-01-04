@@ -47,7 +47,7 @@ function ProductEditForm() {
     if (response.status === NOT_FOUND_STATUS) {
       alert('Produto não encontrado!');
     } else {
-      alert('Produto editado com sucesso!');
+      alert(`Produto de ID ${id} editado com sucesso!`);
       navigateTo('/');
     }
   };
