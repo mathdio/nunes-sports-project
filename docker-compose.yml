@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  backend:
+    container_name: nunes-sports-backend
+    build: .
+    image: nunes-sports-backend-image
+    restart: always
+    ports:
+      - "8080:8080"
+    links:
+      - mysql:nunes-sports-db
+    environment:
+      - DATABASE_HOST=nunes-sports-db
+      - DATABASE_PORT=3306
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://nunes-sports-db:3306/nunessports?createDatabaseIfNotExist=true
+
+  mysql:
+    container_name: nunes-sports-db
+    image: mysql:8.0.32
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
