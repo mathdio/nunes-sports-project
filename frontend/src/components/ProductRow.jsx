@@ -2,7 +2,7 @@ import styles from '../styles/ProductsTable.module.css';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
-function ProductRow({ id, name, description, price, updateDatabase, setUpdateDatabase }) {
+function ProductRow({ id, name, description, price, setUpdateDatabase }) {
   const navigateTo = useNavigate();
 
   const deleteProduct = async (productId) => {
@@ -18,7 +18,8 @@ function ProductRow({ id, name, description, price, updateDatabase, setUpdateDat
         },
       },
     );
-    setUpdateDatabase(!updateDatabase);
+    alert('Produto deletado com sucesso!');
+    setUpdateDatabase(true);
   };
 
   const editProduct = (productId) => {
@@ -62,7 +63,6 @@ ProductRow.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,
-  updateDatabase: PropTypes.bool,
   setUpdateDatabase: PropTypes.func,
 }.isRequired;
 

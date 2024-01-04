@@ -4,7 +4,7 @@ import styles from '../styles/PageButtons.module.css';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 
-function PagesButtons({ count, pageNumber, setSearchParams, setPageNumber }) {
+function PagesButtons({ count, pageNumber, setSearchParams }) {
   const [arrayPages, setArrayPages] = useState([]);
 
   useEffect(() => {
@@ -15,17 +15,14 @@ function PagesButtons({ count, pageNumber, setSearchParams, setPageNumber }) {
   }, []);
 
   const handleClick = (page) => {
-    setPageNumber(page);
     setSearchParams({ pageNumber: page });
   };
 
   const handleIncreasePage = (page) => {
-    setPageNumber(page + 1);
     setSearchParams({ pageNumber: page + 1 });
   };
 
   const handleDecreasePage = (page) => {
-    setPageNumber(page - 1);
     setSearchParams({ pageNumber: page - 1 });
   };
 

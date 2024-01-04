@@ -4,25 +4,39 @@ import styles from '../styles/ProductsTable.module.css';
 import fetchCount from '../utils/fetchCount';
 import fetchProducts from '../utils/fetchProducts';
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 function ProductsTable() {
   const [products, setProducts] = useState([]);
   const [updateDatabase, setUpdateDatabase] = useState(false);
   const [count, setCount] = useState(0);
-  const [pageNumber, setPageNumber] = useState();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const navigateTo = useNavigate();
+
+  const goTo = () => {
+    setUpdateDatabase(false);
+    if (products.length === 1) {
+      navigateTo(`/?pageNumber=${searchParams.get('pageNumber') - 1}`);
+      window.location.reload(false);
+    } else {
+      window.location.reload(false);
+    }
+  };
 
   useEffect(() => {
     document.title = 'Sistema de Produtos';
-    setPageNumber(searchParams.get('pageNumber') || 1);
-    setSearchParams({ pageNumber: 1 });
-  }, [updateDatabase]);
+    if (updateDatabase) {
+      goTo();
+    }
 
-  useEffect(() => {
-    fetchProducts(setProducts, pageNumber);
-    fetchCount(setCount);
-  }, [pageNumber]);
+    if (searchParams.get('pageNumber')) {
+      fetchProducts(setProducts, searchParams.get('pageNumber'));
+      fetchCount(setCount);
+    } else {
+      setSearchParams({ pageNumber: 1 });
+    }
+  }, [updateDatabase, searchParams]);
 
   return (
     <main className={ styles['main-container'] }>
@@ -56,7 +70,6 @@ function ProductsTable() {
               name={ product.name }
               description={ product.description }
               price={ product.price }
-              updateDatabase={ updateDatabase }
               setUpdateDatabase={ setUpdateDatabase }
             />))}
         </tbody>
@@ -64,8 +77,7 @@ function ProductsTable() {
       {(count > 0) && (
         <PagesButtons
           count={ count }
-          pageNumber={ Number(pageNumber) }
-          setPageNumber={ setPageNumber }
+          pageNumber={ Number(searchParams.get('pageNumber')) }
           setSearchParams={ setSearchParams }
         />)}
     </main>

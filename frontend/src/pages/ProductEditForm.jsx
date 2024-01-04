@@ -19,7 +19,7 @@ function ProductEditForm() {
 
   const updateProductInfo = async () => {
     if (price === '') {
-      alert('Price cannot be empty');
+      alert('Campo de preço deve ser preenchido!');
       return 0;
     }
 
@@ -44,11 +44,10 @@ function ProductEditForm() {
     );
 
     const NOT_FOUND_STATUS = 404;
-    console.log(response.status);
     if (response.status === NOT_FOUND_STATUS) {
-      alert('Product not found!');
+      alert('Produto não encontrado!');
     } else {
-      alert('Product edited successfully!');
+      alert('Produto editado com sucesso!');
       navigateTo('/');
     }
   };
