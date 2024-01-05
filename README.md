@@ -112,7 +112,7 @@ Services and endpoints:
 
 > To get a specific product, delete it or update it, the endpoint must have the product ID (`{productId}`) as in `http://localhost:8080/products/1`
 
-## 🧪 Testing
+## 🧪 Testing back-end layer
 In project root terminal, run:
 ```
 mvn test
