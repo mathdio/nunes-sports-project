@@ -112,3 +112,12 @@ Services and endpoints:
 
 > To get a specific product, delete it or update it, the endpoint must have the product ID (`{productId}`) as in `http://localhost:8080/products/1`
 
+## 🧪 Testing
+In project root terminal, run:
+```
+mvn test
+```
+Or for execute only one test class, run:
+```
+mvn test -Dtest="TestClassName"
+```
