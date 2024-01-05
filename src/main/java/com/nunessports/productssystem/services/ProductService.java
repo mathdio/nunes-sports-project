@@ -63,11 +63,14 @@ public class ProductService {
    *
    * @param id the id
    */
-  public void deleteProduct(Long id) {
-    Optional<Product> optionalProduct = this.getProductById(id);
-    if (optionalProduct.isPresent()) {
-      this.productRepository.deleteById(id);
+  public Optional<Product> deleteProduct(Long id) {
+    Optional<Product> optionalProduct = this.productRepository.findById(id);
+    if (optionalProduct.isEmpty()) {
+      throw new NotFoundException("Product not found!");
     }
+
+    this.productRepository.deleteById(id);
+    return optionalProduct;
   }
 
   /**
@@ -78,7 +81,10 @@ public class ProductService {
    * @return the product
    */
   public Product updateProduct(Product productToUpdate, Long id) {
-    Optional<Product> optionalProduct = this.getProductById(id);
+    Optional<Product> optionalProduct = this.productRepository.findById(id);
+    if (optionalProduct.isEmpty()) {
+      throw new NotFoundException("Product not found!");
+    }
 
     Product product = optionalProduct.get();
     product.setName(productToUpdate.getName());
