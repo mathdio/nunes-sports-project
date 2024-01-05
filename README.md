@@ -40,7 +40,7 @@ The back-end and front-end available endpoints are listed in a section below.
 As the project is containerized, to run the application you will need to install Docker and Docker
 Compose. The Docker version used in this project was 24.0.7. You can
 see [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
-how to install it. The Docker Compose version supported by the project is 1.29 or higher. You can
+how to install it. The Docker Compose version used was 2.5.0. You can
 see [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04-pt)
 or in the [docs](https://docs.docker.com/compose/install/) how to install it.
 
@@ -64,6 +64,19 @@ Once the container is created (or after starting the container), the application
 | nunes-sports-frontend | 5173 |
 | nunes-sports-backend | 8080 |
 | nunes-sports-db | 3306 |
+
+## 🛣️ Front-end available endpoints
+
+The front-end layer has the following endpoints:
+
+| Page | Endpoint |
+| :--: | :------: |
+| 1) Products table | http://localhost:5173/ |
+| 2) Product edition | http://localhost:5173/edit/:id |
+| 3) Register a new product | http://localhost:5173/register |
+
+> The products table page (1) has an optional search parameter named `pageNumber` which can be used to directly access a certain products page. With DatabaseSeeder active, the initial table will have 6 pages.
+> You can use the parameter like in `http://localhost:5173/?pageNumber=6`.
 
 ## 🛣️ API available endpoints
 
