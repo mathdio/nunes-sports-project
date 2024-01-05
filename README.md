@@ -81,6 +81,8 @@ The front-end layer has the following endpoints:
 
 > The product edition page (2) endpoint has `:id` as an required parameter. The "Editar" buttons in products table page (1) sends you to this page, but if you already now the product ID, you can access it directly by endpoint, as in `http://localhost:5173/edit/1`.
 
+> Register a new product page (3) can be accessed directly by the endpoint, or by the "Registrar novo produto" button in products table page (1).
+
 ## 🛣️ API available endpoints
 
 To use the API services only you will can use a web browser or a client for APIs testing,
@@ -98,7 +100,7 @@ Services and endpoints:
 | Update a product by ID | PUT | http://localhost:8080/products/{productId} |
 | Count all products in database | GET | http://localhost:8080/products/count |
 
-> Request body example to register a product:
+> Request body example to register or update a product:
 > ```
 > {
 >  "name": "Bola",
@@ -106,4 +108,7 @@ Services and endpoints:
 >  "price": 50
 > }
 > ```
+> The `price` attribute is the only one required.
+
+> To get a specific product, delete it or update it, the endpoint must have the product ID (`{productId}`) as in `http://localhost:8080/products/1`
 
