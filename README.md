@@ -75,8 +75,11 @@ The front-end layer has the following endpoints:
 | 2) Product edition | http://localhost:5173/edit/:id |
 | 3) Register a new product | http://localhost:5173/register |
 
-> The products table page (1) has an optional search parameter named `pageNumber` which can be used to directly access a certain products page. With DatabaseSeeder active, the initial table will have 6 pages.
+> The products table page (1) endpoint has an optional search parameter named `pageNumber` which can be used to directly access a certain products page. With DatabaseSeeder active, the initial table will have 6 pages.
 > You can use the parameter like in `http://localhost:5173/?pageNumber=6`.
+> In products table page, you have access to update or delete the products.
+
+> The product edition page (2) endpoint has `:id` as an required parameter. The "Editar" buttons in products table page (1) sends you to this page, but if you already now the product ID, you can access it directly by endpoint, as in `http://localhost:5173/edit/1`.
 
 ## 🛣️ API available endpoints
 
