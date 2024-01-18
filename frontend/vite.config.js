@@ -10,4 +10,15 @@ export default defineConfig({
   server: {
     host: true,
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './setupTests.js',
+    css: true,
+    reporters: ['verbose'],
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+      provider: 'v8',
+    },
+  },
 });

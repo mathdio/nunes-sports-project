@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  * The type Product controller.
  */
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/products")
 public class ProductController {
 
